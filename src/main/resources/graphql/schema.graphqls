@@ -1,0 +1,66 @@
+#Operation Types (Query, Mutation, Subscription) -> check in terminal Unmapped fields:
+type Query{
+    #url search http://localhost:8080/graphiql
+
+    books: [Book!]!
+    # query in graphiql
+    #query{
+    #    books{
+    #        id
+    #        title
+    #        author{
+    #            name
+    #        }
+    #    }
+    #}
+
+    book(id: ID!) : Book!
+    # query in graphiql
+    #query McQuery($id: ID!){
+    #    book(id: $id) {
+    #        id
+    #        title
+    #        author{
+    #            name
+    #        }
+    #    }
+    #}
+
+    # in Variables add 
+    #{
+    #    "id":1
+    #}
+}
+
+type Mutation{
+    addBook(bookInput: BookInput) : Book!
+    # query in graphiql
+    #mutation{
+    #    addBook(bookInput:{
+    #        authorId: 1
+    #        title: "Josh's New Book"
+    #    }) {
+    #        id
+    #        title
+    #    }
+    #}
+}
+
+#Object Types (output types)
+type Book {
+    #Scalars types is Int, Float, String, Boolean, ID, Scalar Extensions
+    id: Int!
+    title: String!
+    author: Author
+}
+
+type Author {
+    id: ID!
+    name: String!
+    books: [Book!]!
+}
+
+input BookInput{
+    title: String!
+    authorId: Int!
+}

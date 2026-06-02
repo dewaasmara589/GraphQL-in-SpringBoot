@@ -6,3 +6,7 @@ spring:
     hibernate:
       ddl-auto: create-drop #dont do this in production
     show-sql: true
+
+  graphql:
+    graphiql:
+      enabled: true
