@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: graphqljava
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop #dont do this in production
+    show-sql: true
