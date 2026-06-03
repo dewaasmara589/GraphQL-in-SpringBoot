@@ -30,6 +30,24 @@ type Query{
     #{
     #    "id":1
     #}
+
+    search(text: String!) : [SearchItem]
+    # query in graphiql
+    # query MyQuery {
+    #     search(text: "g") {
+    #         ... on Author {
+    #             name
+    #             __typename
+    #         }
+    #         ... on Book {
+    #             title
+    #             author {
+    #                 name
+    #             }
+    #             __typename
+    #         }
+    #     }
+    # }
 }
 
 type Mutation{
@@ -64,3 +82,5 @@ input BookInput{
     title: String!
     authorId: Int!
 }
+
+union SearchItem = Author | Book
