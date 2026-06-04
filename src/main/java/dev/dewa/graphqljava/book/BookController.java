@@ -42,8 +42,13 @@ public class BookController {
         return bookRepository.findById(id);
     }
 
+    @SchemaMapping
+    public Author author(Book book) {
+        return authorRepository.findById(book.getAuthor().getId()).orElse(null);
+    }
+
     @MutationMapping
-    public Book addBook(@Argument BookInput bookInput){
+    public Book addBook(@Argument BookInput bookInput) {
         Author author = authorRepository.findById(bookInput.authorId()).orElseThrow();
         var book = new Book();
         book.setTitle(bookInput.title());
