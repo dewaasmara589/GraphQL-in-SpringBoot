@@ -61,6 +61,19 @@ type Query{
     #         }
     #     }
     # }
+
+    review(id: Int!): Review
+    reviews(filter: ReviewFilter): [Review]!
+    # query in graphiql
+    # query MyQuery{
+    #     reviews(filter: {reviewerName: "Bob"}){
+    #         id
+    #         reviewerName
+    #         rating
+    #         createdAt
+    #         verified
+    #     }
+    # }
 }
 
 type Mutation{
@@ -89,6 +102,22 @@ type Author {
     id: ID!
     name: String!
     books: [Book!]!
+}
+
+type Review {
+    id: ID!
+    rating: Int!
+    comment: String
+    createdAt: String!
+    reviewerName: String!
+    verified: Boolean!
+    book: Book!
+}
+
+input ReviewFilter{
+    rating: Int
+    verified: Boolean
+    reviewerName: String
 }
 
 input BookInput{
