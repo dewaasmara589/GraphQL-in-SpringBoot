@@ -48,6 +48,19 @@ type Query{
     #         }
     #     }
     # }
+
+    authors: [Author!]!
+    # query in graphiql
+    # query{
+    #     authors{
+    #         id
+    #         name
+    #         books{
+    #             id
+    #             title
+    #         }
+    #     }
+    # }
 }
 
 type Mutation{

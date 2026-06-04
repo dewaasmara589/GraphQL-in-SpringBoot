@@ -10,3 +10,7 @@ spring:
   graphql:
     graphiql:
       enabled: true
+
+  threads:
+    virtual:
+      enabled: true
