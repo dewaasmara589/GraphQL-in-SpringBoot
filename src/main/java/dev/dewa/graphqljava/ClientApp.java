@@ -18,6 +18,9 @@ public class ClientApp implements ApplicationRunner{
     private static final Logger log = LoggerFactory.getLogger(ClientApp.class);
     private final HttpSyncGraphQlClient client;
 
+    //To access Grafana
+    //http://localhost:3000 -> Drolldown (Traces)
+
     public ClientApp(RestClient.Builder builder){
         RestClient restClient = builder.baseUrl("http://localhost:8080/graphql").build();
         this.client = HttpSyncGraphQlClient.builder(restClient).build();

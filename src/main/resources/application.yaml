@@ -14,3 +14,8 @@ spring:
   threads:
     virtual:
       enabled: true
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0 #dont do this in production can make down
